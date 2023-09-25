@@ -2,9 +2,10 @@ import express from "express";
 const app = express();
 import bodyParser from "body-parser";
 
-import socketIoClient from "socket.io-client";
 const PORT = process.env.PORT || 3000;
-const socket = socketIoClient("http://localhost:8080"); // Connect to the Socket.IO server (Server 2)
+
+// import createSocketConnection from "./config/socket.config.js";
+// const socket = createSocketConnection("http://localhost:4000"); // Connect to the Socket.IO server (Server 2)
 
 import config from "./config/server.config.js";
 import svcRoute from "./routes/svc.routes.js";
@@ -24,14 +25,10 @@ svcRoute(app);
 //   res.send("Message emitted to Socket.IO server (Server 2)");
 // });
 
-socket.on("test_to_serverApi", (data) => {
-  console.error("Android to SocketServer to Server Api: Success", data);
-  socket.emit("serverApi_to_socketServer")
-});
-
-socket.on("connect_error", (error) => {
-  console.error("Socket.IO connection error:", error);
-});
+// socket.on("test_to_serverApi", (data) => {
+//   console.error("Android to SocketServer to Server Api: Success", data);
+//   socket.emit("serverApi_to_socketServer");
+// });
 
 app.listen(PORT, () => {
   console.log(`sy-core is listening on port ${PORT}`);
