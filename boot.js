@@ -12,8 +12,8 @@ const corsOptions = {
   origin: 'http://45.76.157.112:4200',
 };
 
-app.use(cors(corsOptions));
 app.use(bodyParser.json());
+app.use(cors(corsOptions));
 svcRoute(app);
 
 app.listen(PORT, () => {
