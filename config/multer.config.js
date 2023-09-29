@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
     cb(null, file.originalname); // Use the original file name for storage
   },
   fileFilter: (req, file, cb) => {
-    if (!file.originalname.match(/\.(sql)$/)) {
+    if (!file.originalname.match(/\.(apk)$/)) {
       return cb(new Error('Only APK files are allowed.'), false);
     }
     cb(null, true);
