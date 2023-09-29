@@ -8,7 +8,7 @@
     "start": "node app.js",
     "start:local": "cross-env NODE_ENV=local nodemon start boot.js",
     "start:production": "cross-env NODE_ENV=production node boot.js",
-    "start:forever": "NODE_ENV=production && forever start boot.js"
+    "start:forever": "cross-env NODE_ENV=production forever start boot.js"
   },
   "keywords": [],
   "author": "",
