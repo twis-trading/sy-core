@@ -1,7 +1,7 @@
 import express from "express";
 const app = express();
 import bodyParser from "body-parser";
-
+import cors from 'cors'
 const PORT = process.env.PORT || 3000;
 
 // import createSocketConnection from "./config/socket.config.js";
@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 import config from "./config/server.config.js";
 import svcRoute from "./routes/svc.routes.js";
-
+app.use(cors({origin:"*"}))
 app.use(bodyParser.json());
 app.get("/", (req, res) => {
   res.send("Express server (Server 1)");
