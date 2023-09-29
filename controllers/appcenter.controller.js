@@ -25,4 +25,4 @@ const getRelease = async (req, res) => {
   });
 };
 
-module.exports = {getRelease, uploadAPKUpdate}
+module.exports = { getRelease, uploadAPKUpdate };
