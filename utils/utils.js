@@ -1,5 +1,5 @@
-import { v4 } from "uuid";
-import bcrpyt from "bcryptjs";
+const { v4 } = require("uuid")
+const bcrpyt = require("bcryptjs")
 
 const uuid = v4();
 const hashPassword = async (password) => await bcrpyt.hash(password, 10);
@@ -25,7 +25,7 @@ const generateRandomString = () => {
   return result;
 };
 
-export default {
+module.exports = {
   uuid,
   hashPassword,
   passwordCompare,

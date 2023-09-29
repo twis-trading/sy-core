@@ -1,4 +1,4 @@
-import { createPool } from "mysql2/promise";
+const { createPool } = require("mysql2/promise")
 
 const pool = createPool({
   port: process.env.DB_PORT || 3307,
@@ -13,4 +13,4 @@ const pool = createPool({
   console.log("Failed to connect to Database - ", err);
 });
 
-export { pool };
+module.exports = { pool };

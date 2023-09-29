@@ -1,10 +1,10 @@
-import model from "../models/response.model.js";
-import {
+const model = require("../models/response.model.js")
+const {
   webLogin,
   webRegistration,
   appLogin,
   appRegistration,
-} from "../services/auth.service.js";
+} = require("../services/auth.service.js")
 
 const login = (req, res) => {
   console.log("payload login: ", req.body);
@@ -49,4 +49,4 @@ const registration = (req, res) => {
   }
 };
 
-export { login, registration };
+module.exports = { login, registration };

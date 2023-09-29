@@ -1,4 +1,4 @@
-import socketIoClient from "socket.io-client";
+const socketIoClient = require("socket.io-client");
 
 const createSocketConnection = (serverUrl) => {
   const socket = socketIoClient(serverUrl);
@@ -18,4 +18,4 @@ const createSocketConnection = (serverUrl) => {
   return socket;
 };
 
-export default createSocketConnection;
+module.exports = { createSocketConnection };

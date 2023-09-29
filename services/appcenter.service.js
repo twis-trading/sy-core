@@ -1,6 +1,7 @@
-import { pool } from "../config/database.config.js";
-import utils from "../utils/utils.js";
-const updateAPKsvc = async (data, callback) => {
+const { pool } = require("../config/database.config.js")
+const utils = require("../utils/utils.js")
+
+exports.updateAPKsvc = async (data, callback) => {
   console.log("data-uploader", data.originalname);
   console.log("data-uploader", data.size);
   console.log("data-uploader", data.destination);
@@ -23,7 +24,7 @@ const updateAPKsvc = async (data, callback) => {
     callback(false, error);
   }
 };
-const getReleasesvc = async (callback) => {
+exports.getReleasesvc = async (callback) => {
   try {
     const query = `SELECT id, payload, version, filename, size, path, createdAt, updatedAt FROM appcenter.app_update order by createdAt desc limit 5 `;
     const [rows] = await pool.query(query);
@@ -35,4 +36,3 @@ const getReleasesvc = async (callback) => {
     callback(false, error);
   }
 };
-export { updateAPKsvc, getReleasesvc };

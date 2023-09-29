@@ -1,6 +1,7 @@
-import { pool } from "../config/database.config.js";
-import utils from "../utils/utils.js";
-const webLogin = async (data, callback) => {
+const { pool } = require("../config/database.config.js")
+const utils = require("../utils/utils.js")
+
+exports.webLogin = async (data, callback) => {
   console.log("data", data);
   const isExisting = await handleCheckUsername(data);
   console.log("isExisting", isExisting);
@@ -31,7 +32,7 @@ const handleCheckUsername = async (data) => {
   }
 };
 
-const webRegistration = async (data, callback) => {
+exports.webRegistration = async (data, callback) => {
   try {
     const query = `INSERT INTO users(payload, username, password, name, email, age, address, user_type) VALUES (?,?,?,?,?,?,?,?)`;
     const [rows] = await pool.query(query, [
@@ -54,7 +55,7 @@ const webRegistration = async (data, callback) => {
   }
 };
 
-const appLogin = async (data, callback) => {
+exports.appLogin = async (data, callback) => {
   const isExisting = await handleCheckUsernameApp(data);
   console.log("isExisting", isExisting);
   if (isExisting) {
@@ -88,7 +89,7 @@ const handleCheckUsernameApp = async (data) => {
     return false;
   }
 };
-const appRegistration = async (data, callback) => {
+exports.appRegistration = async (data, callback) => {
   console.log("data", data);
   try {
     const query = `INSERT INTO app_users(payload, imei, name, phone, email, address) VALUES (?,?,?,?,?,?)`;
@@ -108,8 +109,4 @@ const appRegistration = async (data, callback) => {
     console.error("Error in handleCheckUsername", error);
     callback(false, error);
   }
-
-  // callback(true, data);
-  // console.log(utils.generateRandomString());
-};
-export { webLogin, webRegistration, appLogin, appRegistration };
+}

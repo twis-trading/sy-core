@@ -1,11 +1,12 @@
-import { registration, login } from "../controllers/auth.controller.js";
-import {
+const { registration, login } = require("../controllers/auth.controller.js")
+const {
   userAlert,
   acknowledgeAlert,
-} from "../controllers/alert.controller.js";
-import { getRelease, uploadAPKUpdate } from "../controllers/appcenter.controller.js";
-import upload from "../config/multer.config.js";
-export default function (app) {
+} = require("../controllers/alert.controller.js")
+const { getRelease, uploadAPKUpdate } = require("../controllers/appcenter.controller.js")
+const {upload} = require("../config/multer.config.js")
+
+module.exports = (app) => {
   app.post("/api/auth/register", registration);
   app.post("/api/auth/login", login);
 

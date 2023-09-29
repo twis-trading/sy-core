@@ -12,4 +12,4 @@ const failModel = {
   message: "Error encountered while processing request.",
 };
 
-export default { successModel, failModel };
+module.exports = { successModel, failModel };

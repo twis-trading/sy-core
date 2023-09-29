@@ -1,6 +1,10 @@
-import { updateAPKsvc, getReleasesvc } from "../services/appcenter.service.js";
-import model from "../models/response.model.js";
-const uploadAPKUpdate = async (req, res) => {
+const {
+  updateAPKsvc,
+  getReleasesvc,
+} = require("../services/appcenter.service.js");
+const model = require("../models/response.model.js");
+
+exports.uploadAPKUpdate = async (req, res) => {
   console.log("uploading..");
   updateAPKsvc(req.file, (isSuccess, data) => {
     isSuccess
@@ -13,12 +17,10 @@ const uploadAPKUpdate = async (req, res) => {
   //   res.status(200).send("File uploaded successfully.");
 };
 
-const getRelease = async (req, res) => {
-    getReleasesvc((isSuccess, data) => {
-        isSuccess
-          ? res.status(200).send({ ...model.successModel, message: data })
-          : res.status(400).send({ ...model.failModel, message: data });
-      });
+exports.getRelease = async (req, res) => {
+  getReleasesvc((isSuccess, data) => {
+    isSuccess
+      ? res.status(200).send({ ...model.successModel, message: data })
+      : res.status(400).send({ ...model.failModel, message: data });
+  });
 };
-
-export { uploadAPKUpdate, getRelease };

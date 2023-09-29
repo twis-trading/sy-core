@@ -1,7 +1,7 @@
-import { pool } from "../config/database.config.js";
-import createSocketConnection from "../config/socket.config.js";
+const { pool } = require("../config/database.config.js")
+const createSocketConnection = require("../config/socket.config.js")
 
-const userAlertCMD = async (data, callback) => {
+exports.userAlertCMD = async (data, callback) => {
   console.log("userAlertCMD", data);
   try {
     const socket = createSocketConnection("http://localhost:4000");
@@ -26,5 +26,3 @@ const userAlertCMD = async (data, callback) => {
     callback(false, error);
   }
 };
-
-export { userAlertCMD };
