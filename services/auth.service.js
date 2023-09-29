@@ -1,5 +1,5 @@
-const pool  = require("../config/database.config.js")
-const utils = require("../utils/utils.js")
+const pool = require("../config/database.config.js");
+const utils = require("../utils/utils.js");
 
 exports.webLogin = async (data, callback) => {
   console.log("data", data);
@@ -23,6 +23,11 @@ exports.webLogin = async (data, callback) => {
 
 const handleCheckUsername = async (data) => {
   try {
+    console.log("port", process.env.DB_PORT);
+    console.log("host", process.env.DB_HOST);
+    console.log("usr", process.env.DB_USERNAME);
+    console.log("pass", process.env.DB_PASSWORD);
+    console.log("db", process.env.DB_DATABASE);
     const query = `SELECT id, payload, username, password, name, email, age, address, user_type, status, createdAt, updatedAt FROM dbsenyasv2.users WHERE username = ?`;
     const [rows] = await pool.query(query, [data.username]);
     return rows.length > 0 ? rows[0] : false;
@@ -109,4 +114,4 @@ exports.appRegistration = async (data, callback) => {
     console.error("Error in handleCheckUsername", error);
     callback(false, error);
   }
-}
+};

@@ -19,4 +19,4 @@ const pool = createPool({
   console.log("Failed to connect to Database - ", err);
 });
 
-module.exports = pool ;
+module.exports = pool;
