@@ -27,7 +27,7 @@ const handleCheckUsername = async (data) => {
     const [rows] = await pool.query(query, [data.username]);
     return rows.length > 0 ? rows[0] : false;
   } catch (error) {
-    console.error("Error in handleCheckUsername", error);
+    console.error("Error in check username", error);
     return false;
   }
 };
