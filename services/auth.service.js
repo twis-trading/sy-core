@@ -23,7 +23,7 @@ exports.webLogin = async (data, callback) => {
 
 const handleCheckUsername = async (data) => {
   try {
-    const query = `SELECT id, payload, username, password, name, email, age, address, user_type, status, createdAt, updatedAt FROM users WHERE username = ?`;
+    const query = `SELECT id, payload, username, password, name, email, age, address, user_type, status, createdAt, updatedAt FROM dbsenyasv2.users WHERE username = ?`;
     const [rows] = await pool.query(query, [data.username]);
     return rows.length > 0 ? rows[0] : false;
   } catch (error) {
