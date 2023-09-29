@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 const svcRoute = require("./routes/svc.routes.js")
 
 
-app.use(cors({ origin: "*" }));
+app.use(cors());
 app.use(bodyParser.json());
 svcRoute(app);
 
