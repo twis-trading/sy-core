@@ -2,7 +2,7 @@ const fs = require("fs")
 const path = require("path")
 const dotenv = require("dotenv")
 
-exports.loadEnv = () => {
+const loadEnv = () => {
     const environment = process.env.NODE_ENV || 'local';
     const envFilePath = path.resolve(`.env.${environment}`);
     console.log("ENV",environment)
@@ -16,3 +16,4 @@ exports.loadEnv = () => {
         process.exit(1);
     }
 }
+module.exports = {loadEnv}

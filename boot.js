@@ -1,4 +1,5 @@
-
+const {loadEnv} = require('./config/check.env.config')
+loadEnv()
 const express = require("express")
 const app = express();
 const bodyParser = require("body-parser")
