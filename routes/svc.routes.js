@@ -7,7 +7,7 @@ const {
   getRelease,
   uploadAPKUpdate,
 } = require("../controllers/appcenter.controller.js");
-const { upload } = require("../config/multer.config.js");
+const  upload = require("../config/multer.config.js");
 
 module.exports = (app) => {
   app.post("/api/auth/register", registration);
