@@ -2,7 +2,7 @@ const multer = require("multer")
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "apk/"); // Specify the directory where uploaded files will be stored
+    cb(null, "appcenter-files/"); // Specify the directory where uploaded files will be stored
   },
   limits: {
     fileSize: 50 * 1024 * 1024, // 50MB in bytes

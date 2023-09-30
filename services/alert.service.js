@@ -1,4 +1,4 @@
-const { pool } = require("../config/database.config.js")
+const  pool  = require("../config/database.config.js")
 const createSocketConnection = require("../config/socket.config.js")
 
 exports.userAlertCMD = async (data, callback) => {

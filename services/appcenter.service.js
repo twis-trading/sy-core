@@ -1,4 +1,4 @@
-const { pool } = require("../config/database.config.js")
+const pool  = require("../config/database.config.js")
 const utils = require("../utils/utils.js")
 
 const updateAPKsvc = async (data, callback) => {
