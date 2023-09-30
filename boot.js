@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 const svcRoute = require("./routes/svc.routes.js")
 
 const corsOptions = {
-  origin: ['http://45.76.157.112:4200',"http://localhost:5173"]
+  origin: ['http://45.76.157.112:4200',"http://localhost:5173","http://localhost:3000"]
 };
 
 app.use(bodyParser.json());
