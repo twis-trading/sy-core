@@ -1,8 +1,8 @@
 const multer = require("multer")
-
+const UPLOAD_PATH = process.env.UPLOAD_PATH || "appcenter-files/"
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "/var/www/appcenter-files/"); // Specify the directory where uploaded files will be stored
+    cb(null, UPLOAD_PATH); // Specify the directory where uploaded files will be stored
   },
   limits: {
     fileSize: 50 * 1024 * 1024, // 50MB in bytes
