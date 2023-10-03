@@ -25,9 +25,14 @@ const generateRandomString = () => {
   return result;
 };
 
+const handleVersioning = (v) =>{
+  //const v = "senyas_v1.0.1.apk"
+ return v.slice(8, 13);
+}
 module.exports = {
   uuid,
   hashPassword,
   passwordCompare,
   generateRandomString,
+  handleVersioning
 };
