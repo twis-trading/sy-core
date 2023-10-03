@@ -1,5 +1,5 @@
-const pool  = require("../config/database.config.js")
-const utils = require("../utils/utils.js")
+const pool = require("../config/database.config.js");
+const utils = require("../utils/utils.js");
 
 const updateAPKsvc = async (data, callback) => {
   console.log("data-uploader", data.originalname);
@@ -37,4 +37,4 @@ const getReleasesvc = async (callback) => {
   }
 };
 
-module.exports = {getReleasesvc,updateAPKsvc}
+module.exports = { getReleasesvc, updateAPKsvc };
