@@ -11,7 +11,7 @@ const updateAPKsvc = async (data, callback) => {
         (payload,version,filename,size,path) VALUES (?,?,?,?,?)`;
     const [rows] = await pool.query(query, [
       utils.uuid,
-      utils.handleVersioning(originalname),
+      utils.handleVersioning(data.originalname),
       data.originalname,
       data.size,
       data.path,
