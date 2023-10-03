@@ -6,7 +6,7 @@ const model = require("../models/response.model.js");
 
 const uploadAPKUpdate = async (req, res) => {
   console.log("uploading..");
-  updateAPKsvc(req.file, (isSuccess, data) => {
+  updateAPKsvc({...req.file, ...req.body}, (isSuccess, data) => {
     isSuccess
       ? res.status(200).send({ ...model.successModel, message: data })
       : res.status(400).send({ ...model.failModel, message: data });
