@@ -1,5 +1,6 @@
 node_modules
 appcenter-files
 
+package-lock.json
 #do_nothing
 #test
