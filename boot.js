@@ -10,7 +10,7 @@ const svcRoute = require("./routes/svc.routes.js")
 
 console.log("ORIGIN",CORS_ORIGIN)
 const corsOptions = {
-  origin: ['http://45.76.157.112:4200',"http://127.0.0.1","http://localhost:5173","http://localhost:4200"]
+  origin: ['http://45.76.157.112:4200',"http://127.0.0.1","http://localhost:5173","http://localhost:5174","http://localhost:4200"]
 };
 
 app.use(bodyParser.json());

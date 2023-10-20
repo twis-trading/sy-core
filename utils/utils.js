@@ -1,6 +1,6 @@
 const { v4 } = require("uuid")
 const bcrpyt = require("bcryptjs")
-
+const moment = require('moment')
 const uuid = v4();
 const hashPassword = async (password) => await bcrpyt.hash(password, 10);
 const passwordCompare = async (req_password, db_password) => {
@@ -33,10 +33,13 @@ const regex = /v(\d+\.\d+\.\d+)/;
   }
   return null; 
 }
+
+const updatedAtTimestamp = () => moment().format(); 
 module.exports = {
   uuid,
   hashPassword,
   passwordCompare,
   generateRandomString,
-  handleVersioning
+  handleVersioning,
+  updatedAtTimestamp
 };
